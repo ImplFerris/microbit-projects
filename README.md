@@ -1,2 +1,2 @@
 # microbit-projects
-Microbit Projects in Rust
+Microbit(v2) Projects in Rust
