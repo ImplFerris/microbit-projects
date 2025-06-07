@@ -3,7 +3,6 @@
 
 use embedded_hal::delay::DelayNs;
 use microbit::{board::Board, display::blocking::Display, hal::timer::Timer};
-
 use cortex_m_rt::entry;
 
 #[panic_handler]
@@ -14,12 +13,11 @@ fn panic(_: &core::panic::PanicInfo) -> ! {
 #[entry]
 fn main() -> ! {
     let board = Board::take().unwrap();
-
     let mut timer = Timer::new(board.TIMER0);
-
     let mut display = Display::new(board.display_pins);
 
-    let led_matrix = [
+    // 5x5 representation of 'R'
+    let r_char = [
         [1, 1, 1, 0, 0],
         [1, 0, 0, 1, 0],
         [1, 1, 1, 0, 0],
@@ -27,30 +25,29 @@ fn main() -> ! {
         [1, 0, 0, 1, 0],
     ];
 
-    let mut col_count = 0;  
+    let mut offset = 0;
 
     loop {
-        let mut frame = [[0; 5]; 5]; 
+        let mut frame = [[0; 5]; 5];
 
-        let start_col = 4 - col_count;
+        for row in 0..5 {
+            for col in 0..5 {
+                let char_col = col as isize + offset - 4;
 
-        for col_index in 0..=col_count {
-            // From end to beginning 
-            let frame_col = start_col + col_index;
-            for row in 0..5 {
-                frame[row][frame_col] = led_matrix[row][col_index];
-
+                if char_col >= 0 && char_col < 5 {
+                    frame[row][col] = r_char[row][char_col as usize];
+                } else {
+                    frame[row][col] = 0;
+                }
             }
         }
 
         display.show(&mut timer, frame, 500);
-        timer.delay_ms(60);
+        timer.delay_ms(100);
 
-        col_count += 1;
-
-        if col_count >= 5 {
-            col_count = 0;
+        offset += 1;
+        if offset > 8 {
+            offset = 0;
         }
     }
-
 }
