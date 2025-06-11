@@ -170,6 +170,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "logo-touch"
+version = "0.1.0"
+dependencies = [
+ "cortex-m-rt",
+ "embedded-hal 1.0.0",
+ "microbit-v2",
+]
+
+[[package]]
 name = "microbit-common"
 version = "0.15.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -334,15 +343,6 @@ name = "tiny-led-matrix"
 version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a718c727b686154a7c7913f70d7ebc8956f701cbab466bc22035cb27f378882b"
-
-[[package]]
-name = "touch-input"
-version = "0.1.0"
-dependencies = [
- "cortex-m-rt",
- "embedded-hal 1.0.0",
- "microbit-v2",
-]
 
 [[package]]
 name = "typenum"
