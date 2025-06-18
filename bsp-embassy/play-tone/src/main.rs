@@ -3,7 +3,6 @@
 
 use embassy_executor::Spawner;
 use embassy_nrf::pwm::SimplePwm;
-use embassy_time::Timer;
 use microbit_bsp::{
     Microbit,
     speaker::{NamedPitch, Pitch, PwmSpeaker},
