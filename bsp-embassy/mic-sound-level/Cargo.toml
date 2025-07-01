@@ -1,12 +1,12 @@
 [package]
 edition = "2024"
-name = "mic-clap"
+name = "mic-sound-level"
 version = "0.1.0"
 authors = ["ImplFerris <implferris@proton.me>"]
 resolver = "2"
 
 [[bin]]
-name = "mic-clap"
+name = "mic-sound-level"
 test = false
 bench = false
 
