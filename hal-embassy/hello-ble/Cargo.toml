@@ -45,14 +45,12 @@ embassy-time = { version = "0.4", features = [
     "defmt-timestamp-uptime",
 ] }
 
-microbit-bsp = { git = "https://github.com/lulf/microbit-bsp", rev = "9c7d52e" }
 
 nrf-softdevice = { git = "https://github.com/embassy-rs/nrf-softdevice/", rev = "5949a5b", features = [
     "ble-peripheral",
     "ble-gatt-server",
     "s113",
     "nrf52833",
-    # "critical-section-impl",
     "defmt",
 ] }
 nrf-softdevice-s113 = { version = "0.1.2" }
