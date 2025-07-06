@@ -9,9 +9,11 @@ pub const DEVICE_NAME: &str = "implRust";
 const fn clock_config() -> Option<raw::nrf_clock_lf_cfg_t> {
     Some(raw::nrf_clock_lf_cfg_t {
         source: raw::NRF_CLOCK_LF_SRC_RC as u8,
-        rc_ctiv: 16,
+        // rc_ctiv: 16,
+        rc_ctiv: 4,
         rc_temp_ctiv: 2,
-        accuracy: raw::NRF_CLOCK_LF_ACCURACY_500_PPM as u8,
+        // accuracy: raw::NRF_CLOCK_LF_ACCURACY_500_PPM as u8,
+        accuracy: raw::NRF_CLOCK_LF_ACCURACY_20_PPM as u8,
     })
 }
 
