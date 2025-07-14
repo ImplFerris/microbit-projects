@@ -7,7 +7,7 @@ use embassy_nrf::{
     bind_interrupts,
     saadc::{self},
 };
-use embassy_time::{Duration, Timer};
+use embassy_time::Timer;
 use microbit_bsp::{Microbit, mic::Microphone};
 use {defmt_rtt as _, panic_probe as _};
 
@@ -22,6 +22,6 @@ async fn main(_spawner: Spawner) -> ! {
     let mut mic = Microphone::new(board.saadc, Irqs, board.microphone, board.micen);
     loop {
         info!("Sound Level: {}", mic.sound_level().await);
-        Timer::after(Duration::from_millis(100)).await;
+        Timer::after_millis(100).await;
     }
 }

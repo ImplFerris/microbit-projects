@@ -45,6 +45,6 @@ async fn main(_spawner: Spawner) -> ! {
                 .display(smile_frame, Duration::from_secs(1))
                 .await;
         }
-        Timer::after(Duration::from_millis(10)).await;
+        Timer::after_millis(100).await;
     }
 }
