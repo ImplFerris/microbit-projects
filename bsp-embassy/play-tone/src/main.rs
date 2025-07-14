@@ -25,14 +25,4 @@ async fn main(_spawner: Spawner) -> ! {
         speaker.stop();
     }
 
-    // loop {
-    //     if button_a.is_low() {
-    //         speaker.start_note(Pitch::Named(NamedPitch::A4));
-    //         Timer::after_millis(millis);
-    //     }
-    //     if button_b.is_low() {
-    //         speaker.stop();
-    //         Timer::after_millis(millis);
-    //     }
-    // }
 }
